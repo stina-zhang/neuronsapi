@@ -28,7 +28,6 @@ if __name__ == '__main__':
     data = json.dumps({"username": "18167122309", "password": "e10adc3949ba59abbe56e057f20f883e", "appId": "1469503131678220288"})
     header = {"Content-Type": "application/json"}
     res = RunMain().run_main(url, 'post', data, header)
-    print(type(res))
 
 
 
