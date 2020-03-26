@@ -35,14 +35,14 @@ def get_run_way(self):
 def get_header(self):
     return global_var.header
 
-# def get_case_depend(self):
-    # return global_var.case_depend
+def get_case_depend(self):
+    return global_var.case_depend
 
-# def get_data_depend(self):
-    # return global_var.data_depend
+def get_data_depend(self):
+    return global_var.data_depend
 
-# def get_field_depend(self):
-#     return global_var.field_depend
+def get_field_depend(self):
+    return global_var.field_depend
 
 def get_data(self):
     return global_var.data
