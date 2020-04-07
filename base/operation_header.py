@@ -7,7 +7,7 @@ class OperationHeader:
 
     def get_token(self):
         url = "http://api.domi100.net/account/login"
-        data = {"username": "13580265868", "password": "123456", "appId": "1469503131678220288"}
+        data = {"username": "13800138002", "password": "123456", "appId": "1469503131678220288"}
         header = {"Content-Type": "application/json"}
         rep = requests.post(url=url, data=json.dumps(data), headers=header)
         token = rep.json()['result']['token']

@@ -24,7 +24,7 @@ class run_login(unittest.TestCase):
         rows_count = self.data.get_case_lines()
         for i in range(1, rows_count):
             cid = self.data.get_case_id(i)
-            url = self.data.get_request_url(i)
+            url = globalvar.Base_Url + self.data.get_request_url(i)
             method = self.data.get_request_method(i)
             request_data = self.data.get_request_data(i)
             expect = self.data.get_expcet_data(i)
@@ -48,6 +48,8 @@ class run_login(unittest.TestCase):
                 self.data.write_result(i, 'fail')
                 logging.info("**********login test fail***********")
                 globalvar.fail_count.append(i)
+
+
 
 
 

@@ -14,24 +14,26 @@ from base import globalvar
 class run_scene_add(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        url = "http://api.domi100.net/account/login"
-        data = {"username": "13580265868", "password": "123456", "appId": "1469503131678220288"}
+        "登录"
+        url = globalvar.Base_Url + "/account/login"
+        data = {"username": "13800138002", "password": "123456", "appId": "1469503131678220288"}
         header = {"Content-Type": "application/json"}
         requests.post(url=url, data=json.dumps(data), headers=header)
         cls.run_method = RunMethod()
-        cls.data = GetData(fileName='/Users/stina/Desktop/apitest.xls', sheetName='scence_add')
+        cls.data = GetData(fileName='/Users/stina/Desktop/apitest.xls', sheetName='scene_add')
         cls.com_util = CommonUtil()
         cls.send_email = SendEmail()
+
     @classmethod
     def tearDownClass(cls) -> None:
-        sql = "SELECT id FROM scene WHERE owner_id=1825161797143461888 AND name!='默认家庭' AND flag=0"
+        sql = "SELECT id FROM scene WHERE owner_id=1693143315735314432 AND name!='默认家庭' AND flag=0"
         sql_data = OperationMysql().search_all(sql)
         if sql_data !=None:
             sql_count = sql_data[0]
             for i in range(sql_count):
                 sid = sql_data[1][i]['id']
                 data = json.dumps({"sceneId":sid})
-                url = 'http://121.40.53.16:8080/scene/del'
+                url = globalvar.Base_Url + '/scene/del'
                 header = OperationHeader().get_header()
                 response = requests.post(url=url, data=data, headers=header)
         else:
@@ -41,7 +43,7 @@ class run_scene_add(unittest.TestCase):
         res = None
         rows_count = self.data.get_case_lines()
         for i in range(1, rows_count):
-            url = self.data.get_request_url(i)
+            url = globalvar.Base_Url + self.data.get_request_url(i)
             method = self.data.get_request_method(i)
             request_data = self.data.get_request_data(i)
             expect = str(int(self.data.get_expcet_data(i)))
@@ -59,12 +61,15 @@ class run_scene_add(unittest.TestCase):
             res = str(self.run_method.run_main(method, url, request_data.encode('utf-8'), header).status_code)
             if self.com_util.is_equal_str(expect, res) == 1:
                 self.data.write_result(i, 'pass')
-                logging.info("**********scence_add test success***********")
+                logging.info("**********scene_add test success***********")
                 globalvar.pass_count.append(i)
             else:
                 self.data.write_result(i, 'fail')
-                logging.info("**********scence_add test fail***********")
+                logging.info("**********scene_add test fail***********")
                 globalvar.fail_count.append(i)
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 
