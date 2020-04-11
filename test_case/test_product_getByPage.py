@@ -1,7 +1,6 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
 
-
 from base.runmethod import RunMethod
 from base.get_Data import GetData
 from base.common_util import CommonUtil
@@ -12,27 +11,23 @@ from base.connect_db import OperationMysql
 from base import globalvar
 import re
 
-class run_product_add(unittest.TestCase):
+class run_product_getByPage(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         '''获取新增厂商ID'''
         cls.header = OperationHeader().get_header()
-        url = globalvar.Base_Url + "/firm/add"
-        data = {"name": "测试厂商700", "code":700, "icon":" 测试厂商11", "address":"金绣国际测试地址"}
-        cls.firmid = requests.post(url=url, data=json.dumps(data), headers=cls.header).json()['result']
         '''读测试用例sheet'''
-        cls.data = GetData(fileName='/Users/stina/Desktop/apitest.xls', sheetName='product_add')
+        cls.data = GetData(fileName='/Users/stina/Desktop/apitest.xls', sheetName='product_getByPage')
         cls.run_method = RunMethod()
         cls.com_util = CommonUtil()
 
-    def test_run_product_add(self):
+    def test_run_product_getByPage(self):
         res = None
         rows_count = self.data.get_case_lines()
         for i in range(1, rows_count):
             url = globalvar.Base_Url + self.data.get_request_url(i)
             method = self.data.get_request_method(i)
-            request_data_old = self.data.get_request_data(i)
-            request_data = re.sub('fid', self.firmid, request_data_old)
+            request_data = self.data.get_request_data(i)
             expect = self.data.get_expcet_data(i)
             header = self.data.is_header(i)
             if header == None:
@@ -49,11 +44,11 @@ class run_product_add(unittest.TestCase):
             res = "state':"+ str(response['state'])
             if self.com_util.is_equal_str(expect, res) == 1:
                 self.data.write_result(i, 'pass')
-                logging.info("**********product_add test success***********")
+                logging.info("**********product_get test success***********")
                 globalvar.pass_count.append(i)
             else:
                 self.data.write_result(i, 'fail')
-                logging.info("**********product_add test fail***********")
+                logging.info("**********product_get test fail***********")
                 globalvar.fail_count.append(i)
 
     @classmethod
