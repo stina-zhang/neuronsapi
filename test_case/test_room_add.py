@@ -85,5 +85,3 @@ class run_room_add(unittest.TestCase):
         else:
             pass
 
-if __name__ == '__main__':
-    unittest.main()

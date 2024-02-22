@@ -6,17 +6,17 @@ class global_var:
 #   case_id
     Id = '0'
     request_name = '1'
-    url = '3'
-    # run = '3'
-    request_way = '4'
-    header = '5'
-    # case_depend = '6'
-    # data_depend = '7'
-    # field_depend = '8'
-    data = '6'
-    expect = '7'
-    response = '8'
-    result = '9'
+    url = '4'
+    run = '3'
+    request_way = '5'
+    header = '6'
+    case_depend = '7'
+    data_depend = '8'
+    field_depend = '9'
+    data = '10'
+    expect = '11'
+    response = '12'
+    result = '13'
 
 #   获取caseid
 def get_id(self):
@@ -26,8 +26,8 @@ def get_id(self):
 def get_url(self):
     return global_var.url
 
-# def get_run(self):
-#     return global_var.run
+def get_run(self):
+    return global_var.run
 
 def get_run_way(self):
     return global_var.request_way

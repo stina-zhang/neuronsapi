@@ -9,7 +9,7 @@ class OperationExcel:
             self.file_name = file_name
             self.sheet_name = sheet_name
         else:
-            self.file_name = '/Users/stina/Desktop/apitest.xls'
+            self.file_name = '/Users/stina/Desktop/apitest的副本 2.xls'
             self.sheet_name = 'login'
         self.data = self.get_data()
 
@@ -34,14 +34,14 @@ class OperationExcel:
         写入excel数据
         row,col,value
         '''
-        read_data = xlrd.open_workbook(self.file_name)
+        read_data = xlrd.open_workbook(self.file_name, formatting_info=True)
         write_data = copy(read_data)
         sheet_data = write_data.get_sheet(self.sheet_name)
         sheet_data.write(row, col, value)
         write_data.save(self.file_name)
 
     #根据对应的caseid 找到对应行的内容
-    def get_rows_data(self,case_id):
+    def get_rows_data(self, case_id):
         row_num = self.get_row_num(case_id)
         rows_data = self.get_row_values(row_num)
         return rows_data
