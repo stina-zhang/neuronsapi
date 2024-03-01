@@ -2,13 +2,14 @@
 # -*- coding:utf-8 -*-
 
 import xlrd, requests, json
+import urllib3
 import random
 def get_token():
-    token_Url = "http://api.domi100.net/account/login"
-    token_Data = {"username": "18167122309", "password": "e10adc3949ba59abbe56e057f20f883e", "appId": "1469503131678220288"}
+    token_Url = "https://sleep.neuronsxc.com/login/password"
+    token_Data = {"username":"root","password":"yyds@neurons"}
     token_Headers = {"Content-Type": "application/json"}
-    rep = requests.post(token_Url, data=json.dumps(token_Data), headers=token_Headers)
-    token = rep.json()['result']['token']
+    rep = requests.post(token_Url, data=json.dumps(token_Data), headers=token_Headers,verify=False)
+    token = rep.json()['data']['token']
     return token
 def get_Headers(inToken):
     headers = {"Content-Type": "application/json", "token": inToken}
@@ -32,12 +33,14 @@ def user_Register():
 
 
 if __name__ == '__main__':
+
+    urllib3.disable_warnings()
     token = get_token()
     headers = get_Headers(token)
-    addUserId = user_Register()
+    # addUserId = user_Register()
     print(token)
     print(headers)
-    print(addUserId)
+    # print(addUserId)
 
 
 

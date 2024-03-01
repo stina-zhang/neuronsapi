@@ -13,7 +13,7 @@ from base import globalvar
 class run_login(unittest.TestCase):
     def setUp(self) -> None:
         self.run_method = RunMethod()
-        self.data = GetData(fileName='/Users/stina/Desktop/apitest.xls', sheetName='login')
+        self.data = GetData(fileName=r'C:\Users\Neurons\Desktop\neuronsapitest.xls', sheetName='login')
         self.com_util = CommonUtil()
 
     def tearDown(self) -> None:
@@ -24,7 +24,7 @@ class run_login(unittest.TestCase):
         rows_count = self.data.get_case_lines()
         for i in range(1, rows_count):
             cid = self.data.get_case_id(i)
-            url = globalvar.Base_Url + self.data.get_request_url(i)
+            url = self.data.get_request_url(i)
             method = self.data.get_request_method(i)
             request_data = self.data.get_request_data(i)
             expect = self.data.get_expcet_data(i)

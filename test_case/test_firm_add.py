@@ -15,7 +15,7 @@ class run_firm_add(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         '''读测试用例sheet'''
-        cls.data = GetData(fileName='/Users/stina/Desktop/apitest.xls', sheetName='firm_add')
+        cls.data = GetData(fileName=r'C:\Users\Neurons\Desktopapitest.xls', sheetName='firm_add')
         cls.run_method = RunMethod()
         cls.com_util = CommonUtil()
         '''获取token'''
