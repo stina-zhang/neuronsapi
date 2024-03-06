@@ -27,8 +27,6 @@ class OperetionJson:
         with open('../dataconfig/cookie.json', 'w') as fp:
             fp.write(json.dumps(data))
 
-
-
-if __name__ == '__main__':
-    opjson = OperetionJson()
-    print(opjson.get_data('shop'))
+# if __name__ == '__main__':
+#     opjson = OperetionJson()
+#     print(opjson.get_data('shop'))

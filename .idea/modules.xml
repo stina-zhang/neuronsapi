@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/domiapi.iml" filepath="$PROJECT_DIR$/.idea/domiapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/neuronsapi.iml" filepath="$PROJECT_DIR$/.idea/neuronsapi.iml" />
     </modules>
   </component>
 </project>

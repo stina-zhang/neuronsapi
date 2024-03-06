@@ -17,6 +17,8 @@ class CommonUtil:
         #     str_one = str_one.encode('unicode-escape').decode('string_escape')
         #
         # return operator.le(str_one, str_two)
+        if str_two == "":
+            flag = flag = False
         if str_one in str_two:
             flag = True
         else:

@@ -7,10 +7,10 @@ import json
 class OperationMysql:
     def __init__(self):
         self.conn = pymysql.connect(
-            host='47.98.47.243',
+            host='',
             port=61306,
-            user='domi',
-            passwd='domi!#$123454321',
+            user='',
+            passwd='',
             db='iot_db',
             charset='utf8',
             cursorclass=pymysql.cursors.DictCursor

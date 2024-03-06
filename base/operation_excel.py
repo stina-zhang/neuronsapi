@@ -9,7 +9,7 @@ class OperationExcel:
             self.file_name = file_name
             self.sheet_name = sheet_name
         else:
-            self.file_name = '/Users/stina/Desktop/apitest的副本 2.xls'
+            self.file_name = '/Users/stina/PycharmProjects/neuronsapi/test_case/neuronsapitest.xls'
             self.sheet_name = 'login'
         self.data = self.get_data()
 

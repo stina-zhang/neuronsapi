@@ -32,6 +32,3 @@ class Config:
         return self._get("HTTP", "Base_Url")
 
 
-# if __name__ == '__main__':
-    # Base_Url = Config().base_url
-

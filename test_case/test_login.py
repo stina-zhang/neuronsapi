@@ -10,10 +10,11 @@ from logs.logger import Logger
 import logging, unittest
 from base import globalvar
 
+
 class run_login(unittest.TestCase):
     def setUp(self) -> None:
         self.run_method = RunMethod()
-        self.data = GetData(fileName=r'C:\Users\Neurons\Desktop\neuronsapitest.xls', sheetName='login')
+        self.data = GetData(fileName='/Users/stina/PycharmProjects/neuronsapi/test_case/neuronsapitest.xls', sheetName='login')
         self.com_util = CommonUtil()
 
     def tearDown(self) -> None:

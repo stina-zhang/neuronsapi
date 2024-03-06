@@ -2,15 +2,17 @@
 # -*- coding:utf-8 -*-
 
 import requests
+import urllib3
 import json
 class RunMethod:
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     def post_main(self, url, data, header=None):
         res = None
 
         if header != None:
-            res = requests.post(url=url, data=data, headers=header)
+            res = requests.post(url=url, data=data, headers=header,verify=False)
         else:
-            res = requests.post(url=url, data=data)
+            res = requests.post(url=url, data=data, verify=False)
         return res
 
     def get_main(self, url, data=None, header=None):
