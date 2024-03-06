@@ -21,7 +21,6 @@ class OperationMysql:
     def search_one(self, sql):
         self.cur.execute(sql)
         result = self.cur.fetchone()
-        # result = json.dumps(result)
         return result
 
     def search_all(self, sql):
